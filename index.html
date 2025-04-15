@@ -1,67 +1,160 @@
-<!DOCTYPE html>
+# HTML-Datei basierend auf dem Lebenslauf und den Anforderungen des Nutzers erstellen
+index_html_content = """<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Max Muster – Webdesigner & Freelancer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nico Berner – IT-Sicherheitsberater & Auditor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #003366;
     }
     header {
-      background: #111;
-      color: #fff;
-      padding: 3rem 1rem;
+      background-color: #003366;
+      color: white;
+      padding: 2rem;
       text-align: center;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #002244;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00aaff;
+    }
     section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .hero {
+      text-align: center;
+    }
+    .hero img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 1rem;
     }
     h2 {
-      color: #222;
+      color: #002244;
     }
-    .kontakt a {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #222;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+    ul {
+      padding-left: 1.2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
       border-radius: 5px;
+    }
+    button {
+      padding: 0.8rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #005599;
+    }
+    footer {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Max Muster</h1>
-  <p>Webdesign & Freelance Services</p>
+  <h1>Nico Berner</h1>
+  <p>IT-Sicherheitsberater & Auditor</p>
 </header>
 
-<section>
-  <h2>Über mich</h2>
-  <p>Ich helfe kleinen Unternehmen und Selbstständigen, moderne und benutzerfreundliche Webseiten zu erstellen. Mit Fokus auf schnelles, sauberes Design und klare Kommunikation.</p>
+<nav>
+  <a href="#startseite">Startseite</a>
+  <a href="#ueber-mich">Über mich</a>
+  <a href="#dienstleistungen">Dienstleistungen</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<section id="startseite" class="hero">
+  <h2>Willkommen!</h2>
+  <p>Ich unterstütze Unternehmen als IT-Sicherheitsberater und Auditor mit Fokus auf ISO 27001, BSI-Grundschutz und TISAX.</p>
+  <img src="https://via.placeholder.com/300x200.png?text=Professionelles+Bild" alt="Profilbild Platzhalter">
 </section>
 
-<section>
-  <h2>Leistungen</h2>
+<section id="ueber-mich">
+  <h2>Über mich</h2>
+  <p>Ich bin zertifizierter ISMS Lead Auditor (ISO/IEC 27001) mit Erfahrung in kritischen Infrastrukturen (Finanzwesen, Energie, Wasser), der Automobilbranche (Volkswagen AG), sowie in Dienstleistungsbetrieben.</p>
+  <p>Meine Expertise liegt im Aufbau und Betrieb von ISMS, Risikomanagement in der Fahrzeugentwicklung, Schwachstellenmanagement sowie der Auditierung von IT-Systemen.</p>
+</section>
+
+<section id="dienstleistungen">
+  <h2>Dienstleistungen</h2>
   <ul>
-    <li>Webdesign & Umsetzung</li>
-    <li>Responsive Webseiten</li>
-    <li>Technische Beratung</li>
+    <li>Auditvorbereitung und Durchführung nach ISO 27001, BSI-Grundschutz und TISAX</li>
+    <li>Aufbau und Pflege von Informationssicherheits-Managementsystemen (ISMS)</li>
+    <li>Schwachstellenmanagement und Sicherheitsbewertungen</li>
+    <li>IT-Sicherheitsberatung für kritische Infrastrukturen</li>
+    <li>Prozess- und Risikomanagement</li>
   </ul>
 </section>
 
-<section class="kontakt">
+<section id="kontakt">
   <h2>Kontakt</h2>
-  <p>Schreib mir eine E-Mail an <strong>max@musterfirma.de</strong></p>
-  <a href="mailto:max@musterfirma.de">Jetzt Kontakt aufnehmen</a>
+  <form>
+    <input type="text" name="name" placeholder="Ihr Name" required />
+    <input type="email" name="email" placeholder="Ihre E-Mail" required />
+    <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht..." required></textarea>
+    <button type="submit">Absenden</button>
+  </form>
+  <p>Oder kontaktieren Sie mich direkt:</p>
+  <ul>
+    <li>E-Mail: <a href="mailto:niberner96@gmail.com">niberner96@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/nico-berner-38a6aa101/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com" target="_blank">GitHub (Platzhalter)</a></li>
+  </ul>
 </section>
 
+<footer>
+  <p>&copy; 2025 Nico Berner. Alle Rechte vorbehalten.</p>
+  <p><a href="#">Impressum</a> | <a href="#">Datenschutzerklärung</a></p>
+</footer>
+
 </body>
-</html>
+</html>"""
+
+# Dateien speichern und zippen
+html_file_path = "/mnt/data/index.html"
+zip_file_path = "/mnt/data/berner-website.zip"
+
+with open(html_file_path, "w", encoding="utf-8") as f:
+    f.write(index_html_content)
+
+with ZipFile(zip_file_path, "w") as zipf:
+    zipf.write(html_file_path, arcname="index.html")
+
+zip_file_path
