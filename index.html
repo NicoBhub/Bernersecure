@@ -1,5 +1,4 @@
-# HTML-Datei basierend auf dem Lebenslauf und den Anforderungen des Nutzers erstellen
-index_html_content = """<!DOCTYPE html>
+"""<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -147,14 +146,3 @@ index_html_content = """<!DOCTYPE html>
 </body>
 </html>"""
 
-# Dateien speichern und zippen
-html_file_path = "/mnt/data/index.html"
-zip_file_path = "/mnt/data/berner-website.zip"
-
-with open(html_file_path, "w", encoding="utf-8") as f:
-    f.write(index_html_content)
-
-with ZipFile(zip_file_path, "w") as zipf:
-    zipf.write(html_file_path, arcname="index.html")
-
-zip_file_path
